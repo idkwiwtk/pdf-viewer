@@ -79,7 +79,7 @@
       <!-- If we need scrollbar -->
       <!-- <div class="swiper-scrollbar"></div> -->
     </div>
-    <!-- <div class="loading"></div> -->
+    <div class="loading"></div>
     <script>
       // If absolute URL from the remote server is provided, configure the CORS
       // header on that server.
@@ -121,11 +121,7 @@
         let viewPort = page.getViewport({ scale: scale });
 
         _canvas.height = viewPort.height;
-        if (viewPort.width < 1024) {
-          _canvas.width = viewPort.width;
-        } else {
-          _canvas.width = viewPort.width / 2;
-        }
+        _canvas.width = viewPort.width;
 
         // Render PDF page into canvas context
         let renderContext = {
@@ -139,7 +135,7 @@
           if (num + 1 <= cntOfPages) {
             renderPage(num + 1);
           } else {
-            // $(".loading").hide();
+            $(".loading").hide();
             createSlide();
           }
         });
